@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Qt for Python</title>
+
+  <meta name="description" content="Qt for Python - Workshop">
+  <meta name="author" content="Cristian Maureira-Fredes">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/qt.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+  if( window.location.search.match( /print-pdf/gi ) ) {
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'css/print/pdf.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  }
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<!--*****************************************************************************-->
+<body>
+<div class="reveal">
+<div class="slides">
+  <!--***************************************************************************-->
+  <section>
+    <h3>Introduction to</h3>
+    <h2><i class="green">Qt</i> for <i class="blue-light">Python</i></h2>
+    <h3>Workshop</h3>
+    <p style="font-size: 70%;">
+      <br/>
+      <br/>
+      Dr. <i class="yellow">Cristián</i> Maureira-Fredes<br/>
+      <i class="blue-light">Software Engineer</i> @ TQtC
+    </p>
+  </section>
+  <!--***************************************************************************-->
+  <section>
+    <h2>User Interfaces</h2>
+  </section>
+  <section>
+    <h2>The Qt Framework</h2>
+  </section>
+  <section>
+    <h2>QObject</h2>
+  </section>
+  <section>
+    <h2>How does it look like?</h2>
+    <pre><code class="python" data-trim data-noescape>
+import sys
+from PySide2.QtWidgets import QApplication, QLabel
+
+# Qt Application
+app = QApplication([])
+
+# Qt Widget
+label = QLabel("Hello World!")
+label.show()
+
+# Executing app
+sys.exit(app.exec_())
+    </code></pre>
+  </section>
+  <section>
+    <h2>Signals & Slots</h2>
+  </section>
+  <section>
+    <h2>Design pattern</h2>
+  </section>
+  <section>
+    <h2>Clicking a button</h2>
+  </section>
+
+  <section>
+    <h2>How do we do it?</h2>
+    <img style="width: 90%; background: 0; border: 0;" src="img/process.png" />
+  </section>
+
+  <section>
+    <div id="left30">
+    <p style="font-size: 450%;text-align: center;">
+    Q<i class="green">&amp;</i>A
+    </p>
+    </div>
+    <div id="right70">
+        <p style="margin-right: 10%; font-size: 90%;">
+            <font color="#41cd52">#qt-pyside</font> on Freenode<br/>
+            Mailing list: <a href="https://bit.ly/pyside2">bit.ly/pyside2</a><br/><br/>
+            <a href="https://www.qt.io/qt-for-python">qt.io/qt-for-python</a><br/>
+            <a href="https://pyside.org">pyside.org</a><br/>
+            <br/><br/>
+           @cmaureir<br/>
+        <img src="img/twitter.png" style="background: rgba(0,0,0,0);height: 50px; border: 0px;">
+        <img src="img/github_white.png"  style="background: rgba(0,0,0,0);height: 50px; border: 0px;">
+        <img src="img/linkedin.png"  style="background: rgba(0,0,0,0);height: 50px; border: 0px;">
+        </p>
+    </div>
+  </section>
+  <!--***************************************************************************-->
+</div>
+</div>
+<!--*****************************************************************************-->
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'none', // none/fade/slide/convex/concave/zoom
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() {
+            return !document.body.classList;
+            }
+        },
+        { src: 'plugin/markdown/marked.js', condition: function() {
+            return !!document.querySelector( '[data-markdown]' );
+            }
+        },
+        { src: 'plugin/markdown/markdown.js', condition: function() {
+            return !!document.querySelector( '[data-markdown]' );
+            }
+        },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+            hljs.initHighlightingOnLoad();
+            }
+        },
+        { src: 'plugin/search/search.js', async: true },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+  </script>
+<!--*****************************************************************************-->
+  <style type="text/css">
+  /* 1. Style header/footer <div> so they are positioned as desired. */
+  #header-left {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  #header-right {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+  }
+  #footer-left {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+  }
+
+  /* Slide division */
+  #left {
+    left:-8.33%;
+    text-align: left;
+    float: left;
+    width:50%;
+    z-index:-10;
+  }
+
+  #right {
+    left:31.25%;
+    top: 75px;
+    float: right;
+    text-align: right;
+    z-index:-10;
+    width:50%;
+  }
+
+  #rightl {
+    left:31.25%;
+    top: 75px;
+    float: right;
+    text-align: left;
+    z-index:-10;
+    width:50%;
+  }
+
+  #left70 {
+    left:-8.33%;
+    text-align: left;
+    float: left;
+    width:66%;
+    z-index:-10;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  #right70 {
+    left:-8.33%;
+    text-align: right;
+    float: right;
+    width:66%;
+    z-index:-10;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  #right70l {
+    left:-8.33%;
+    text-align: left;
+    float: right;
+    width:66%;
+    z-index:-10;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  #left30 {
+    left:31.25%;
+    top: 75px;
+    float: left;
+    text-align: left;
+    z-index:-10;
+    width:26%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  #right30 {
+    left:31.25%;
+    top: 75px;
+    float: right;
+    text-align: right;
+    z-index:-10;
+    width:26%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  /* styles */
+  .green {
+    color: #41cd52;
+    font-style: normal;
+  }
+
+  .green-dark {
+    color: #17a81a;
+    font-style: normal;
+  }
+
+  .gray {
+    color: #646464;
+    font-style: normal;
+  }
+  .blue {
+    color: #306998;
+    font-style: normal;
+  }
+  .blue-light {
+    color: #4B8BBE;
+    font-style: normal;
+  }
+  .yellow {
+    color: #FFD43B;
+    font-style: normal;
+  }
+  .yellow-light {
+    color: #FFE873;
+    font-style: normal;
+  }
+
+  .white {
+    color: #ffffff;
+    font-style: normal;
+  }
+
+  .red {
+    color: #ff6961;
+    font-style: normal;
+  }
+  </style>
+
+  <!-- 2. Create hidden header/footer <div> -->
+  <div id="hidden" style="display:none;">
+    <div id="header">
+      <div id="header-left"></div>
+      <div id="header-right"><img src="img/qt.png" width="150px" /></div>
+      <div id="footer-left"><p style="font-size: 12pt;margin-left: 20px;">Qt for Python | The Qt Company | 2019</p></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript">
+    // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+    var header = $('#header').html();
+    if ( window.location.search.match( /print-pdf/gi ) ) {
+      Reveal.addEventListener( 'ready', function( event ) {
+        $('.slide-background').append(header);
+      });
+    }
+    else {
+      $('div.reveal').append(header);
+     }
+  </script>
+<!--*****************************************************************************-->
+</body>
+</html>
