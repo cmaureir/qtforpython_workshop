@@ -1,5 +1,7 @@
 # Workshop tutorial
 
+![Screenshot](application.png "Application screenshot")
+
 :warning: Warning
 
 > In general, importing all the classes from a module is not a good practise,
