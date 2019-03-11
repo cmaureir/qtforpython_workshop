@@ -41,16 +41,16 @@ You will learn the following concepts:
   * show it, and
   * execute the application.
 
-(Check the solution for this step [01-expenses.py](01-expenses.py)).
+> Check the solution for this step [01-expenses.py](01-expenses.py)
 
-### Step 02
+### Step 02 - Menu bar
 
 * Access the `menuBar` from the QMainWindow, and create a `File` menu,
 * Add a `QAction` to the menu called "Exit".
 
-(Check the solution for this step [02-expenses.py](02-expenses.py)).
+> Check the solution for this step [02-expenses.py](02-expenses.py)
 
-### Step 03
+### Step 03 - First signal/slot connection
 
 * Connect the "Exit" action, trough its `triggered` **signal**, to a **slot**
   that exit the application.
@@ -60,9 +60,9 @@ You will learn the following concepts:
   QApplication.quit()
   ```
 
-(Check the solution for this step [03-expenses.py](03-expenses.py)).
+> Check the solution for this step [03-expenses.py](03-expenses.py)
 
-### Step 04
+### Step 04 - Empty widget and data
 
 * Create a new class that inherits from `QWidget`,
 * Add the following example data to that class as a variable:
@@ -73,67 +73,70 @@ You will learn the following concepts:
   ```
 * Modify the class `MainWindow` to accept a `widget` in its constructor,
 * Use the widget to set it as the central widget of the MainWindow class.
+
   **Hint:**
   `QMainWindow` has method called `setCentralWidget` that you can use.
 
-(Check the solution for this step [04-expenses.py](04-expenses.py)).
+> Check the solution for this step [04-expenses.py](04-expenses.py)
 
-### Step 05
+### Step 05 - Window layout
 
 * Add a `QHBoxLayout` to the Widget class,
 * Create a `QTableWidget` (using 2 columns),
 * Add the table to the layout.
 * Create a method to fill the information we wrote in **step 04**
   to the table.
+
   **Hint:**:
   * You need to iterate the dictionary,
   * insert a row to the table (`insertRow`),
   * set the items to the created row (`setItem`)
   * Use a class variable to keep track of the rows.
 
-(Check the solution for this step [05-expenses.py](05-expenses.py)).
+> Check the solution for this step [05-expenses.py](05-expenses.py)
 
-### Step 06
+### Step 06 - Right side layout
 
 * Add another element to the `QHBoxLayout` we created in the previous
   step: a `QVBoxLayout`.
 * Add to the `QVBoxLayout` labels (`QLabel`), line edits (`QLineEdit`),
   and buttons (`QPushButton`) to enter the required information.
 
-(Check the solution for this step [06-expenses.py](06-expenses.py)).
+> Check the solution for this step [06-expenses.py](06-expenses.py)
 
-### Step 07
+### Step 07 - Adding elements
 
 * Create a **slot** to add a new element to the list, for the button "Add",
 * Create a **slot** to quit the application, for the button "Quit",
 * Optional: Create a button to clear the table.
 
-(Check the solution for this step [07-expenses.py](07-expenses.py)).
+> Check the solution for this step [07-expenses.py](07-expenses.py)
 
-### Step 08
+### Step 08 - Verification step
 
 * Disable the "Add" button by default, and
 * Add mechanisms to check if both the "description" and the "quantity"
   are not empty to enable the "Add" button,
+
   **Hint:** Use the `textChanges[str]` signal for `QLineEdit`.
 
-(Check the solution for this step [08-expenses.py](08-expenses.py)).
+> Check the solution for this step [08-expenses.py](08-expenses.py)
 
-### Step 09
+### Step 09 - Empty chart view
 
 * Add a non-functional new button (under "Add") to "Plot" the data,
 * Add an empty `QChartView` under the buttons,
 
-(Check the solution for this step [09-expenses.py](09-expenses.py)).
+> Check the solution for this step [09-expenses.py](09-expenses.py)
 
-### Step 10
+### Step 10 - Full application
 
 * Connect the "Plot" button to a slot that:
   * Creates a `QPieSeries`, and fills it,
   * Create a `QChart` using the `QPieSeries`,
   * Update the chart view to include this newly created `QChart`.
 
-(Check the solution for this step [10-expenses.py](10-expenses.py)).
+> Check the solution for this step [10-expenses.py](10-expenses.py)
 
 ### Optional step
 
