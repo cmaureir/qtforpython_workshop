@@ -1,0 +1,12 @@
+--2019-03-11 22:23:37--  https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2Fz9AUvhAEiXOqA%2Fgiphy.gif
+Loaded CA certificate '/etc/ssl/certs/ca-certificates.crt'
+Resolving proxy.duckduckgo.com (proxy.duckduckgo.com)... 54.75.239.212, 79.125.105.117
+Connecting to proxy.duckduckgo.com (proxy.duckduckgo.com)|54.75.239.212|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [image/gif]
+Saving to: ‘index.html?u=https:%2F%2Fmedia.giphy.com%2Fmedia%2Fz9AUvhAEiXOqA%2Fgiphy.gif’
+
+                       index.html?u=https:%2F%     [<=>                                                                                                  ]       0  --.-KB/s                                     index.html?u=https:%2F%2     [ <=>                                                                                                 ] 915.05K  4.47MB/s               index.html?u=https:%2F%2Fmedia.giphy.com%2Fmed     [  <=>                                                                                                ]   4.84M  13.2MB/s    in 0.4s    
+
+2019-03-11 22:23:38 (13.2 MB/s) - ‘index.html?u=https:%2F%2Fmedia.giphy.com%2Fmedia%2Fz9AUvhAEiXOqA%2Fgiphy.gif’ saved [5073342]
+
