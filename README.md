@@ -28,10 +28,7 @@ your first `PySide2` application.
 ## Content
 
 * [Slides](https://maureira.xyz/qtforpython_workshop)
-
-Examples:
-* [Hello World](01-helloworld.md)
-* [Clicked button](02-clickedbutton.md)
+* [Examples](examples/)
 
 ## Additional material
 
