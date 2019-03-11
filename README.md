@@ -1,6 +1,6 @@
 # Qt for Python Workshop
 
-![PySide2 logo](img/pysidelogo.png)
+![PySide2 logo](slides/img/pysidelogo.png)
 
 [Qt for Python](https://www.qt.io/qt-for-python) is a project which aims to
 integrate Python as an official alternative language to the Qt framework.
