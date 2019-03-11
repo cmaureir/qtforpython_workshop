@@ -26,24 +26,24 @@ Use the latest **Python 3** version available.
 ## Does it work?
 
 * macOS and Linux:
- * Open a terminal and type `python` you should see something like this:
-   ```
-   Python 3.7.2 (default, Jan 10 2019, 23:51:51)
-   [GCC 8.2.1 20181127] on linux
-   Type "help", "copyright", "credits" or "license" for more information.
-   >>>
-   ```
+  * Open a terminal and type `python` you should see something like this:
+    ```bash
+    Python 3.7.2 (default, Jan 10 2019, 23:51:51)
+    [GCC 8.2.1 20181127] on linux
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>>
+    ```
  * **Important:** In some systems you should execute `python3` instead.
 
 * Windows
- * Open `cmd` by typing `WindowsKey + r`, then writing `cmd` and `Enter`.
- * Type `python` or `python3` and you should see something like:
-   ```
-   Python 3.7.2 (default, Jan 10 2019, 23:51:51)
-   [GCC 8.2.1 20181127] on linux
-   Type "help", "copyright", "credits" or "license" for more information.
-   >>>
-   ```
+  * Open `cmd` by typing `WindowsKey + r`, then writing `cmd` and `Enter`.
+  * Type `python` or `python3` and you should see something like:
+    ```bash
+    Python 3.7.2 (default, Jan 10 2019, 23:51:51)
+    [GCC 8.2.1 20181127] on linux
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>>
+    ```
 
 # Install Virtualenv (optional)
 
@@ -52,19 +52,19 @@ where we can install packages freely, without affecting the installed modules
 that are installed in the system.
 
 * Install `virtualenv`
-  ```
+  ```bash
   pip install virtualenv
   ```
 * Create a virtual environment:
-  ```
+  ```bash
   virtualenv workshop
   ```
 * Activate the virtual environment:
-  ```
+  ```bash
   source workshop/bin/activate
   ```
 * Verify where is your python executable. It should be inside the virtual environment.
-  ```
+  ```bash
   which python
   > ~/workshop/bin/python
   ```
@@ -73,12 +73,12 @@ that are installed in the system.
 
 * Activate your virtual environment (optional)
 * Install `PySide2` via pip
-  ```
+  ```bash
   pip install PySide2
   ```
 * Execute `python` and try to import the module `import PySide2`, if no error
   appeared, you successfully installed it. Something like this:
-  ```
+  ```python
   >>> import PySide2
   >>>
   ```
