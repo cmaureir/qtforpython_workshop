@@ -2,7 +2,7 @@
 
 ## 01. Hello World
 
-```
+```python
 import sys
 from PySide2.QtWidgets import QApplication, QLabel
 
@@ -15,7 +15,7 @@ if __name__ == "__main__":
 ```
 ## 02. Click button (without class)
 
-```
+```python
 import sys
 from PySide2.QtCore import Qt, Slot
 from PySide2.QtWidgets import QApplication, QPushButton
@@ -38,7 +38,7 @@ sys.exit(app.exec_())
 
 ## 03. Click button (with a class)
 
-```
+```python
 import sys
 import random
 from PySide2.QtWidgets import (QApplication, QLabel, QPushButton,
