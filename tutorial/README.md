@@ -150,7 +150,6 @@ and are not required for this workshop.
 * Add another [QAction][8] to save the content of the table into a local
   file so you don't lose your information.
 * Use another type of chart to represent the data e.g.: [QBarSeries][14].
-* Extend the model to also save the **date** when you added the expenses.
 
 [1]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QMainWindow.html
 [2]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QTableWidget.html
