@@ -21,24 +21,24 @@ You will learn the following concepts:
 * to build your own application :tada:.
 
 :bulb: The requirements:
-* A simple window will hold our application (QMainWindow),
-* The application will keep track of our expenses on a list (QListWidget),
-* Two fields (QLineEdit), description and quantity,  will be used to enter the
+* A simple window will hold our application ([QMainWindow][1]),
+* The application will keep track of our expenses on a list ([QTableWidget][2]),
+* Two fields ([QLineEdit][3]), description and quantity,  will be used to enter the
   information,
-* Buttons (QPushButton) will be in charge to add the information to the list,
+* Buttons ([QPushButton][4]) will be in charge to add the information to the list,
   plot the data, clear the table content, and exit the application,
 * A verification step is needed to avoid entering empty data,
-* The data needs to be plotted into a Pie chart (QPieChart), that will
-  be embedded into a chart view (QChartView).
+* The data needs to be plotted into a chart ([QChart][5]), that will
+  be embedded into a chart view ([QChartView][6]).
 
 ## Steps to follow
 
 ### Step 01 - Empty window
 
-* Create an empty window based on QMainWindow using a separate class.
-  (Check the documentation to set a title for the window)
+* Create an empty window based on `QMainWindow` using a separate class.
+  (Check the [documentation][7] to set a title for the window)
 * On the main section `if __name__ == "__main__":`,
-  * Create a QApplication,
+  * Create a [QApplication][7],
   * instantiate the class (empty window),
   * show it, and
   * execute the application.
@@ -47,8 +47,8 @@ You will learn the following concepts:
 
 ### Step 02 - Menu bar
 
-* Access the `menuBar` from the QMainWindow, and create a `File` menu,
-* Add a `QAction` to the menu called "Exit".
+* Access the `menuBar` from the [QMainWindow][7], and create a `File` menu,
+* Add a [QAction][8] to the menu called "Exit".
 
 > Check the solution for this step [02-expenses.py](02-expenses.py)
 
@@ -66,7 +66,7 @@ You will learn the following concepts:
 
 ### Step 04 - Empty widget and data
 
-* Create a new class that inherits from `QWidget`,
+* Create a new class that inherits from [QWidget][9],
 * Add the following example data to that class as a variable:
   ```python
   self._data = {"Water": 24.5, "Electricity": 55.1, "Rent": 850.0,
@@ -83,8 +83,8 @@ You will learn the following concepts:
 
 ### Step 05 - Window layout
 
-* Add a `QHBoxLayout` to the Widget class,
-* Create a `QTableWidget` (using 2 columns),
+* Add a [QHBoxLayout][10] to the Widget class,
+* Create a [QTableWidget][2] (using 2 columns),
 * Add the table to the layout.
 * Create a method to fill the information we wrote in **step 04**
   to the table.
@@ -99,9 +99,9 @@ You will learn the following concepts:
 
 ### Step 06 - Right side layout
 
-* Add another element to the `QHBoxLayout` we created in the previous
-  step: a `QVBoxLayout`.
-* Add to the `QVBoxLayout` labels (`QLabel`), line edits (`QLineEdit`),
+* Add another element to the [QHBoxLayout][10] we created in the previous
+  step: a [QVBoxLayout][11].
+* Add to the [QVBoxLayout][11] labels ([QLabel][12]), line edits ([QLineEdit][3]),
   and buttons (`QPushButton`) to enter the required information.
 
 > Check the solution for this step [06-expenses.py](06-expenses.py)
@@ -120,23 +120,23 @@ You will learn the following concepts:
 * Add mechanisms to check if both the "description" and the "quantity"
   are not empty to enable the "Add" button,
 
-  **Hint:** Use the `textChanges[str]` signal for `QLineEdit`.
+  **Hint:** Use the `textChanged[str]` signal for [QLineEdit][3].
 
 > Check the solution for this step [08-expenses.py](08-expenses.py)
 
 ### Step 09 - Empty chart view
 
 * Add a non-functional new button (under "Add") to "Plot" the data,
-* Add an empty `QChartView` under the buttons,
+* Add an empty [QChartView][6] under the buttons,
 
 > Check the solution for this step [09-expenses.py](09-expenses.py)
 
 ### Step 10 - Full application
 
 * Connect the "Plot" button to a slot that:
-  * Creates a `QPieSeries`, and fills it,
-  * Create a `QChart` using the `QPieSeries`,
-  * Update the chart view to include this newly created `QChart`.
+  * Creates a [QPieSeries][13], and fills it,
+  * Create a [QChart][5] using the [QPieSeries][13],
+  * Update the chart view to include this newly created [QChart][5].
 
 > Check the solution for this step [10-expenses.py](10-expenses.py)
 
@@ -145,9 +145,24 @@ You will learn the following concepts:
 The following features are for you to try them out,
 and are not required for this workshop.
 
-* Add another `QAction` to the window menu to load a file as content
+* Add another [QAction][8] to the window menu to load a file as content
   for the table.
-* Add another `QAction` to save the content of the table into a local
+* Add another [QAction][8] to save the content of the table into a local
   file so you don't lose your information.
-* Use another type of chart to represent the data e.g.: `QBarSeries`.
+* Use another type of chart to represent the data e.g.: [QBarSeries][14].
 * Extend the model to also save the **date** when you added the expenses.
+
+[1]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QMainWindow.html
+[2]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QTableWidget.html
+[3]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QLineEdit.html
+[4]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QPushButton.html
+[5]: https://doc.qt.io/qtforpython/PySide2/QtCharts/QtCharts.QChart.html
+[6]: https://doc.qt.io/qtforpython/PySide2/QtCharts/QtCharts.QChartView.html
+[7]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QMainWindow.html
+[8]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QAction.html
+[9]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QWidget.html
+[10]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QHBoxLayout.html
+[11]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QVBoxLayout.html
+[12]: https://doc.qt.io/qtforpython/PySide2/QtWidgets/QLabel.html
+[13]: https://doc.qt.io/qtforpython/PySide2/QtCharts/QtCharts.QPieSeries.html
+[14]: https://doc.qt.io/qtforpython/PySide2/QtCharts/QtCharts.QBarSeries.html
