@@ -9,6 +9,8 @@ The most important component of this project are the set of bindings that
 expose the whole Qt/C++ framework to Python,
 called [PySide2](https://pyside.org).
 
+![Screenshot](tutorial/application.png "Application screenshot")
+
 ## Objectives
 
 * Get to know the `PySide2` module, and unleash its potential.
