@@ -2,7 +2,7 @@
 #############################################################################
 ##
 ## Copyright (C) 2013 Riverbank Computing Limited.
-## Copyright (C) 2016 The Qt Company Ltd.
+## Copyright (C) 2021 The Qt Company Ltd.
 ## Contact: http://www.qt.io/licensing/
 ##
 ## This file is part of the Qt for Python examples of the Qt Toolkit.
@@ -40,20 +40,22 @@
 ##
 #############################################################################
 
-"""PySide2 port of the widgets/dialogs/trivialwizard example from Qt v5.x"""
+"""PySide6 port of the widgets/dialogs/trivialwizard example from Qt v6.x"""
 
-from PySide2 import QtWidgets
+import sys
+from PySide6.QtWidgets import (QWizardPage, QLabel, QVBoxLayout, QLineEdit,
+                               QGridLayout, QApplication, QWizard)
 
 
 def createIntroPage():
-    page = QtWidgets.QWizardPage()
+    page = QWizardPage()
     page.setTitle("Introduction")
 
-    label = QtWidgets.QLabel("This wizard will help you register your copy of "
-            "Super Product Two.")
+    label = QLabel("This wizard will help you register your copy of "
+                   "Super Product Two.")
     label.setWordWrap(True)
 
-    layout = QtWidgets.QVBoxLayout()
+    layout = QVBoxLayout()
     layout.addWidget(label)
     page.setLayout(layout)
 
@@ -61,17 +63,17 @@ def createIntroPage():
 
 
 def createRegistrationPage():
-    page = QtWidgets.QWizardPage()
+    page = QWizardPage()
     page.setTitle("Registration")
     page.setSubTitle("Please fill both fields.")
 
-    nameLabel = QtWidgets.QLabel("Name:")
-    nameLineEdit = QtWidgets.QLineEdit()
+    nameLabel = QLabel("Name:")
+    nameLineEdit = QLineEdit()
 
-    emailLabel = QtWidgets.QLabel("Email address:")
-    emailLineEdit = QtWidgets.QLineEdit()
+    emailLabel = QLabel("Email address:")
+    emailLineEdit = QLineEdit()
 
-    layout = QtWidgets.QGridLayout()
+    layout = QGridLayout()
     layout.addWidget(nameLabel, 0, 0)
     layout.addWidget(nameLineEdit, 0, 1)
     layout.addWidget(emailLabel, 1, 0)
@@ -82,13 +84,13 @@ def createRegistrationPage():
 
 
 def createConclusionPage():
-    page = QtWidgets.QWizardPage()
+    page = QWizardPage()
     page.setTitle("Conclusion")
 
-    label = QtWidgets.QLabel("You are now successfully registered. Have a nice day!")
+    label = QLabel("You are now successfully registered. Have a nice day!")
     label.setWordWrap(True)
 
-    layout = QtWidgets.QVBoxLayout()
+    layout = QVBoxLayout()
     layout.addWidget(label)
     page.setLayout(layout)
 
@@ -97,11 +99,9 @@ def createConclusionPage():
 
 if __name__ == '__main__':
 
-    import sys
+    app = QApplication(sys.argv)
 
-    app = QtWidgets.QApplication(sys.argv)
-
-    wizard = QtWidgets.QWizard()
+    wizard = QWizard()
     wizard.addPage(createIntroPage())
     wizard.addPage(createRegistrationPage())
     wizard.addPage(createConclusionPage())
@@ -109,4 +109,4 @@ if __name__ == '__main__':
     wizard.setWindowTitle("Trivial Wizard")
     wizard.show()
 
-    sys.exit(wizard.exec_())
+    sys.exit(wizard.exec())

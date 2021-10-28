@@ -1,7 +1,9 @@
 import sys
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
+from PySide6.QtCore import Slot
+from PySide6.QtGui import QAction
+from PySide6.QtWidgets import (QWidget, QTableWidget, QHeaderView, QLineEdit,
+                               QPushButton, QVBoxLayout, QLabel, QHBoxLayout,
+                               QTableWidgetItem, QApplication, QMainWindow)
 
 
 class Widget(QWidget):
@@ -28,7 +30,7 @@ class Widget(QWidget):
         self.quit = QPushButton("Quit")
 
         self.right = QVBoxLayout()
-        self.right.setMargin(10)
+        self.right.setContentsMargins(10, 10, 10, 10)
         self.right.addWidget(QLabel("Description"))
         self.right.addWidget(self.description)
         self.right.addWidget(QLabel("Quantity"))
@@ -40,7 +42,6 @@ class Widget(QWidget):
         # QWidget Layout
         self.layout = QHBoxLayout()
 
-        #self.table_view.setSizePolicy(size)
         self.layout.addWidget(self.table)
         self.layout.addLayout(self.right)
 
@@ -120,4 +121,4 @@ if __name__ == "__main__":
     window.show()
 
     # Execute application
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

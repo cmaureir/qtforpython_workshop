@@ -1,7 +1,7 @@
 
 #############################################################################
 ##
-## Copyright (C) 2018 The Qt Company Ltd.
+## Copyright (C) 2021 The Qt Company Ltd.
 ## Contact: http://www.qt.io/licensing/
 ##
 ## This file is part of the Qt for Python examples of the Qt Toolkit.
@@ -39,29 +39,31 @@
 ##
 #############################################################################
 
-"""PySide2 port of the Nested Donuts example from Qt v5.x"""
+"""PySide6 port of the Nested Donuts example from Qt v6.x"""
 
 import sys
 
-from PySide2.QtCore import Qt, QTimer
-from PySide2.QtGui import QPainter
-from PySide2.QtWidgets import QApplication, QGridLayout, QWidget
-from PySide2.QtCharts import QtCharts
+from PySide6.QtCore import Qt, QTimer
+from PySide6.QtGui import QPainter
+from PySide6.QtWidgets import QApplication, QGridLayout, QWidget
+from PySide6.QtCharts import (QChartView, QChart, QPieSeries,
+                              QPieSlice)
 
 from random import randrange
 from functools import partial
+
 
 class Widget(QWidget):
     def __init__(self):
         QWidget.__init__(self)
         self.setMinimumSize(800, 600)
         self.donuts = []
-        self.chart_view = QtCharts.QChartView()
+        self.chart_view = QChartView()
         self.chart_view.setRenderHint(QPainter.Antialiasing)
         self.chart = self.chart_view.chart()
         self.chart.legend().setVisible(False)
         self.chart.setTitle("Nested donuts demo")
-        self.chart.setAnimationOptions(QtCharts.QChart.AllAnimations)
+        self.chart.setAnimationOptions(QChart.AllAnimations)
 
         self.min_size = 0.1
         self.max_size = 0.9
@@ -80,32 +82,30 @@ class Widget(QWidget):
 
     def setup_donuts(self):
         for i in range(self.donut_count):
-            donut = QtCharts.QPieSeries()
+            donut = QPieSeries()
             slccount = randrange(3, 6)
             for j in range(slccount):
                 value = randrange(100, 200)
 
-                slc = QtCharts.QPieSlice(str(value), value)
+                slc = QPieSlice(str(value), value)
                 slc.setLabelVisible(True)
                 slc.setLabelColor(Qt.white)
-                slc.setLabelPosition(QtCharts.QPieSlice.LabelInsideTangential)
+                slc.setLabelPosition(QPieSlice.LabelInsideTangential)
 
                 # Connection using an extra parameter for the slot
                 slc.hovered[bool].connect(partial(self.explode_slice, slc=slc))
 
                 donut.append(slc)
-                size = (self.max_size - self.min_size)/self.donut_count
+                size = (self.max_size - self.min_size) / self.donut_count
                 donut.setHoleSize(self.min_size + i * size)
                 donut.setPieSize(self.min_size + (i + 1) * size)
 
             self.donuts.append(donut)
             self.chart_view.chart().addSeries(donut)
 
-
-
     def update_rotation(self):
         for donut in self.donuts:
-            phase_shift =  randrange(-50, 100)
+            phase_shift = randrange(-50, 100)
             donut.setPieStartAngle(donut.pieStartAngle() + phase_shift)
             donut.setPieEndAngle(donut.pieEndAngle() + phase_shift)
 
@@ -129,8 +129,9 @@ class Widget(QWidget):
 
         slc.setExploded(exploded)
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = Widget()
     w.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

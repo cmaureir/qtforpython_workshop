@@ -1,8 +1,9 @@
 import sys
 import random
-from PySide2.QtWidgets import (QApplication, QLabel, QPushButton,
+from PySide6.QtWidgets import (QApplication, QLabel, QPushButton,
                                QVBoxLayout, QWidget)
-from PySide2.QtCore import Slot, Qt
+from PySide6.QtCore import Slot, Qt
+
 
 class MyWidget(QWidget):
     def __init__(self):
@@ -26,6 +27,7 @@ class MyWidget(QWidget):
     def magic(self):
         self.text.setText(random.choice(self.hello))
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
@@ -33,4 +35,4 @@ if __name__ == "__main__":
     widget.resize(800, 600)
     widget.show()
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

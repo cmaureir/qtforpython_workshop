@@ -69,16 +69,16 @@ that are installed in the system.
   > ~/workshop/bin/python
   ```
 
-# Install PySide2
+# Install PySide6
 
 * Activate your virtual environment (optional)
-* Install `PySide2` via pip
+* Install `PySide6` via pip
   ```bash
-  pip install PySide2
+  pip install PySide6
   ```
-* Execute `python` and try to import the module `import PySide2`, if no error
+* Execute `python` and try to import the module `import PySide6`, if no error
   appeared, you successfully installed it. Something like this:
   ```python
-  >>> import PySide2
+  >>> import PySide6
   >>>
   ```
