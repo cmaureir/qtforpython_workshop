@@ -1,8 +1,10 @@
 import sys
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
-from PySide2.QtCharts import QtCharts
+from PySide6.QtCore import Slot, Qt
+from PySide6.QtGui import QAction, QPainter
+from PySide6.QtWidgets import (QWidget, QTableWidget, QLineEdit, QPushButton,
+                               QVBoxLayout, QHBoxLayout, QLabel, QHeaderView,
+                               QTableWidgetItem, QApplication, QMainWindow)
+from PySide6.QtCharts import QChartView, QPieSeries, QChart
 
 
 class Widget(QWidget):
@@ -22,7 +24,7 @@ class Widget(QWidget):
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # Chart
-        self.chart_view = QtCharts.QChartView()
+        self.chart_view = QChartView()
         self.chart_view.setRenderHint(QPainter.Antialiasing)
 
         # Right
@@ -37,14 +39,13 @@ class Widget(QWidget):
         self.add.setEnabled(False)
 
         self.right = QVBoxLayout()
-        self.right.setMargin(10)
+        self.right.setContentsMargins(10, 10, 10, 10)
         self.right.addWidget(QLabel("Description"))
         self.right.addWidget(self.description)
         self.right.addWidget(QLabel("Quantity"))
         self.right.addWidget(self.quantity)
         self.right.addWidget(self.add)
         self.right.addWidget(self.plot)
-        #self.right.addStretch()
         self.right.addWidget(self.chart_view)
         self.right.addWidget(self.clear)
         self.right.addWidget(self.quit)
@@ -52,7 +53,6 @@ class Widget(QWidget):
         # QWidget Layout
         self.layout = QHBoxLayout()
 
-        #self.table_view.setSizePolicy(size)
         self.layout.addWidget(self.table)
         self.layout.addLayout(self.right)
 
@@ -94,13 +94,13 @@ class Widget(QWidget):
     @Slot()
     def plot_data(self):
         # Get table information
-        series = QtCharts.QPieSeries()
+        series = QPieSeries()
         for i in range(self.table.rowCount()):
             text = self.table.item(i, 0).text()
             number = float(self.table.item(i, 1).text())
             series.append(text, number)
 
-        chart = QtCharts.QChart()
+        chart = QChart()
         chart.addSeries(series)
         chart.legend().setAlignment(Qt.AlignLeft)
         self.chart_view.setChart(chart)
@@ -156,4 +156,4 @@ if __name__ == "__main__":
     window.show()
 
     # Execute application
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

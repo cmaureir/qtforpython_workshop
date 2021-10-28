@@ -1,6 +1,6 @@
 #############################################################################
 ##
-## Copyright (C) 2018 The Qt Company Ltd.
+## Copyright (C) 2021 The Qt Company Ltd.
 ## Contact: http://www.qt.io/licensing/
 ##
 ## This file is part of the Qt for Python examples of the Qt Toolkit.
@@ -38,24 +38,25 @@
 ##
 #############################################################################
 
-"""PySide2 port of the line/bar example from Qt v5.x"""
+"""PySide6 port of the line/bar example from Qt v6.x"""
 
 import sys
-from PySide2.QtCore import QPoint, Qt
-from PySide2.QtGui import QPainter
-from PySide2.QtWidgets import QMainWindow, QApplication
-from PySide2.QtCharts import QtCharts
+from PySide6.QtCore import QPoint, Qt
+from PySide6.QtGui import QPainter
+from PySide6.QtWidgets import QMainWindow, QApplication
+from PySide6.QtCharts import (QBarSet, QBarSeries, QLineSeries, QChart,
+                              QBarCategoryAxis, QValueAxis, QChartView)
 
 
 class TestChart(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
 
-        self.set0 = QtCharts.QBarSet("Jane")
-        self.set1 = QtCharts.QBarSet("John")
-        self.set2 = QtCharts.QBarSet("Axel")
-        self.set3 = QtCharts.QBarSet("Mary")
-        self.set4 = QtCharts.QBarSet("Sam")
+        self.set0 = QBarSet("Jane")
+        self.set1 = QBarSet("John")
+        self.set2 = QBarSet("Axel")
+        self.set3 = QBarSet("Mary")
+        self.set4 = QBarSet("Sam")
 
         self.set0.append([1, 2, 3, 4, 5, 6])
         self.set1.append([5, 0, 0, 4, 0, 7])
@@ -63,14 +64,14 @@ class TestChart(QMainWindow):
         self.set3.append([5, 6, 7, 3, 4, 5])
         self.set4.append([9, 7, 5, 3, 1, 2])
 
-        self.barSeries = QtCharts.QBarSeries()
+        self.barSeries = QBarSeries()
         self.barSeries.append(self.set0)
         self.barSeries.append(self.set1)
         self.barSeries.append(self.set2)
         self.barSeries.append(self.set3)
         self.barSeries.append(self.set4)
 
-        self.lineSeries = QtCharts.QLineSeries()
+        self.lineSeries = QLineSeries()
         self.lineSeries.setName("trend")
         self.lineSeries.append(QPoint(0, 4))
         self.lineSeries.append(QPoint(1, 15))
@@ -79,19 +80,19 @@ class TestChart(QMainWindow):
         self.lineSeries.append(QPoint(4, 12))
         self.lineSeries.append(QPoint(5, 17))
 
-        self.chart = QtCharts.QChart()
+        self.chart = QChart()
         self.chart.addSeries(self.barSeries)
         self.chart.addSeries(self.lineSeries)
         self.chart.setTitle("Line and barchart example")
 
         self.categories = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        self.axisX = QtCharts.QBarCategoryAxis()
+        self.axisX = QBarCategoryAxis()
         self.axisX.append(self.categories)
         self.chart.setAxisX(self.axisX, self.lineSeries)
         self.chart.setAxisX(self.axisX, self.barSeries)
         self.axisX.setRange("Jan", "Jun")
 
-        self.axisY = QtCharts.QValueAxis()
+        self.axisY = QValueAxis()
         self.chart.setAxisY(self.axisY, self.lineSeries)
         self.chart.setAxisY(self.axisY, self.barSeries)
         self.axisY.setRange(0, 20)
@@ -99,7 +100,7 @@ class TestChart(QMainWindow):
         self.chart.legend().setVisible(True)
         self.chart.legend().setAlignment(Qt.AlignBottom)
 
-        self.chartView = QtCharts.QChartView(self.chart)
+        self.chartView = QChartView(self.chart)
         self.chartView.setRenderHint(QPainter.Antialiasing)
 
         self.setCentralWidget(self.chartView)
@@ -112,4 +113,4 @@ if __name__ == "__main__":
     window.show()
     window.resize(440, 300)
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

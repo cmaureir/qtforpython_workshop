@@ -1,9 +1,12 @@
 import sys
 import csv
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
-from PySide2.QtCharts import QtCharts
+from PySide6.QtCore import Slot, Qt
+from PySide6.QtGui import QAction, QPainter
+from PySide6.QtWidgets import (QWidget, QTableWidget, QLineEdit, QPushButton,
+                               QVBoxLayout, QHBoxLayout, QLabel, QHeaderView,
+                               QTableWidgetItem, QApplication, QMainWindow,
+                               QGridLayout, QMessageBox)
+from PySide6.QtCharts import QChartView, QChart, QBarSeries, QBarSet
 
 
 class Widget(QWidget):
@@ -18,7 +21,7 @@ class Widget(QWidget):
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # Chart
-        self.chart_view = QtCharts.QChartView()
+        self.chart_view = QChartView()
         self.chart_view.setRenderHint(QPainter.Antialiasing)
 
         # Right
@@ -33,7 +36,7 @@ class Widget(QWidget):
         self.add.setEnabled(False)
 
         self.right = QVBoxLayout()
-        self.right.setMargin(10)
+        self.right.setContentsMargins(10, 10, 10, 10)
 
         self.right_top = QGridLayout()
 
@@ -56,7 +59,6 @@ class Widget(QWidget):
         # QWidget Layout
         self.layout = QHBoxLayout()
 
-        #self.table_view.setSizePolicy(size)
         self.layout.addWidget(self.table)
         self.layout.addLayout(self.right)
 
@@ -95,17 +97,17 @@ class Widget(QWidget):
     @Slot()
     def plot_data(self):
         # Get table information
-        series = QtCharts.QBarSeries()
+        series = QBarSeries()
         for i in range(self.table.rowCount()):
             text = self.table.item(i, 0).text()
             number = float(self.table.item(i, 1).text())
 
-            bar_set = QtCharts.QBarSet(text)
+            bar_set = QBarSet(text)
             bar_set.append(number)
 
             series.append(bar_set)
 
-        chart = QtCharts.QChart()
+        chart = QChart()
         chart.addSeries(series)
         chart.legend().setAlignment(Qt.AlignLeft)
         self.chart_view.setChart(chart)
@@ -136,7 +138,7 @@ class MainWindow(QMainWindow):
         load_action.triggered.connect(self.load_data)
 
         # Save QAction
-        save_action = QAction("save", self)
+        save_action = QAction("Save", self)
         save_action.setShortcut("Ctrl+S")
         save_action.triggered.connect(self.save_data)
 
@@ -144,7 +146,6 @@ class MainWindow(QMainWindow):
         exit_action = QAction("Exit", self)
         exit_action.setShortcut("Ctrl+Q")
         exit_action.triggered.connect(self.exit_app)
-
 
         self.file_menu.addAction(load_action)
         self.file_menu.addAction(save_action)
@@ -159,7 +160,7 @@ class MainWindow(QMainWindow):
     def save_data(self, checked):
         rows = self.widget.table.rowCount()
         if rows:
-            with open('data.csv', 'w') as f:
+            with open('../data.csv', 'w') as f:
                 writer = csv.writer(f, delimiter=',', quotechar='"',
                                     quoting=csv.QUOTE_ALL)
                 for i in range(rows):
@@ -168,6 +169,8 @@ class MainWindow(QMainWindow):
                     writer.writerow([des, qty])
                 reply = QMessageBox.information(self, "Save",
                                                 "Saved file successfully")
+                # Invoke reply to show it
+                reply
 
     @Slot()
     def load_data(self, checked):
@@ -183,7 +186,8 @@ class MainWindow(QMainWindow):
                 self.widget.items += 1
 
             reply = QMessageBox.information(self, "Load",
-                                           "Load successfully")
+                                            "Load successfully")
+            reply
 
 
 if __name__ == "__main__":
@@ -197,4 +201,4 @@ if __name__ == "__main__":
     window.show()
 
     # Execute application
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

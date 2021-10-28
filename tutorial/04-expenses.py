@@ -1,7 +1,7 @@
 import sys
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
+from PySide6.QtCore import Slot
+from PySide6.QtGui import QAction
+from PySide6.QtWidgets import QWidget, QMainWindow, QApplication
 
 
 class Widget(QWidget):
@@ -47,4 +47,4 @@ if __name__ == "__main__":
     window.show()
 
     # Execute application
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

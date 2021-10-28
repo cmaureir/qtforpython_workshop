@@ -1,5 +1,5 @@
 import sys
-from PySide2.QtWidgets import QApplication, QLabel
+from PySide6.QtWidgets import QApplication, QLabel
 
 if __name__ == "__main__":
     app = QApplication([])

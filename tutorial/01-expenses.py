@@ -1,11 +1,12 @@
 import sys
-from PySide2.QtWidgets import *
+from PySide6.QtWidgets import QMainWindow, QApplication
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setWindowTitle("Tutorial")
+
 
 if __name__ == "__main__":
     # Qt Application
@@ -16,4 +17,4 @@ if __name__ == "__main__":
     window.show()
 
     # Execute application
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
