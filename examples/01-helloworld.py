@@ -6,4 +6,4 @@ if __name__ == "__main__":
     label = QLabel("Hello World!")
     label.resize(400, 400)
     label.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
