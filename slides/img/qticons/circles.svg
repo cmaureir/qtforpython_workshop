@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="87px" height="475px" viewBox="0 0 87 475" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>circles</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mainpage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.400000006">
+        <g id="Mainpage_Layout_V4_Megamenu" transform="translate(0.000000, -159.000000)">
+            <g id="Background" transform="translate(-662.000000, -136.000000)">
+                <g id="circles" transform="translate(0.000000, 158.000000)">
+                    <g id="Oval-8">
+                        <ellipse stroke="#BBBBBB" stroke-width="3" stroke-dasharray="500,200,500,200" transform="translate(409.107946, 374.232190) rotate(5.000000) translate(-409.107946, -374.232190) " cx="409.107946" cy="374.23219" rx="345.034658" ry="345.371096"></ellipse>
+                        <ellipse stroke="#8E8E8E" stroke-width="9" stroke-dasharray="500,200,500,200" transform="translate(409.428312, 374.552869) rotate(-6.000000) translate(-409.428312, -374.552869) " cx="409.428312" cy="374.552869" rx="331.899634" ry="332.223264"></ellipse>
+                        <ellipse stroke="#BBBBBB" cx="433.467213" cy="374.873548" rx="293.078237" ry="293.364013"></ellipse>
+                        <ellipse stroke="#8E8E8E" stroke-dasharray="5" cx="433.78758" cy="374.552869" rx="262.700482" ry="262.956638"></ellipse>
+                        <ellipse stroke="#CCCCCC" stroke-width="16" stroke-dasharray="2" cx="510.238951" cy="365.364523" rx="159.613514" ry="159.637115"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

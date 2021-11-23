@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #ffffcc }
+body  { background: #f8f8f8; }
+body .c { color: #408080; font-style: italic } /* Comment */
+body .err { border: 1px solid #FF0000 } /* Error */
+body .k { color: #008000; font-weight: bold } /* Keyword */
+body .o { color: #666666 } /* Operator */
+body .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 } /* Comment.Preproc */
+body .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .gr { color: #FF0000 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #888888 } /* Generic.Output */
+body .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #0044DD } /* Generic.Traceback */
+body .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #008000 } /* Keyword.Pseudo */
+body .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #B00040 } /* Keyword.Type */
+body .m { color: #666666 } /* Literal.Number */
+body .s { color: #BA2121 } /* Literal.String */
+body .na { color: #7D9029 } /* Name.Attribute */
+body .nb { color: #008000 } /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+body .no { color: #880000 } /* Name.Constant */
+body .nd { color: #AA22FF } /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold } /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+body .nf { color: #0000FF } /* Name.Function */
+body .nl { color: #A0A000 } /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+body .nt { color: #008000; font-weight: bold } /* Name.Tag */
+body .nv { color: #19177C } /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+body .w { color: #bbbbbb } /* Text.Whitespace */
+body .mb { color: #666666 } /* Literal.Number.Bin */
+body .mf { color: #666666 } /* Literal.Number.Float */
+body .mh { color: #666666 } /* Literal.Number.Hex */
+body .mi { color: #666666 } /* Literal.Number.Integer */
+body .mo { color: #666666 } /* Literal.Number.Oct */
+body .sa { color: #BA2121 } /* Literal.String.Affix */
+body .sb { color: #BA2121 } /* Literal.String.Backtick */
+body .sc { color: #BA2121 } /* Literal.String.Char */
+body .dl { color: #BA2121 } /* Literal.String.Delimiter */
+body .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #BA2121 } /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+body .sh { color: #BA2121 } /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+body .sx { color: #008000 } /* Literal.String.Other */
+body .sr { color: #BB6688 } /* Literal.String.Regex */
+body .s1 { color: #BA2121 } /* Literal.String.Single */
+body .ss { color: #19177C } /* Literal.String.Symbol */
+body .bp { color: #008000 } /* Name.Builtin.Pseudo */
+body .fm { color: #0000FF } /* Name.Function.Magic */
+body .vc { color: #19177C } /* Name.Variable.Class */
+body .vg { color: #19177C } /* Name.Variable.Global */
+body .vi { color: #19177C } /* Name.Variable.Instance */
+body .vm { color: #19177C } /* Name.Variable.Magic */
+body .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+
+<span class="c1">#############################################################################</span>
+<span class="c1">##</span>
+<span class="c1">## Copyright (C) 2018 The Qt Company Ltd.</span>
+<span class="c1">## Contact: http://www.qt.io/licensing/</span>
+<span class="c1">##</span>
+<span class="c1">## This file is part of the Qt for Python examples of the Qt Toolkit.</span>
+<span class="c1">##</span>
+<span class="c1">## $QT_BEGIN_LICENSE:BSD$</span>
+<span class="c1">## You may use this file under the terms of the BSD license as follows:</span>
+<span class="c1">##</span>
+<span class="c1">## &quot;Redistribution and use in source and binary forms, with or without</span>
+<span class="c1">## modification, are permitted provided that the following conditions are</span>
+<span class="c1">## met:</span>
+<span class="c1">##   * Redistributions of source code must retain the above copyright</span>
+<span class="c1">##     notice, this list of conditions and the following disclaimer.</span>
+<span class="c1">##   * Redistributions in binary form must reproduce the above copyright</span>
+<span class="c1">##     notice, this list of conditions and the following disclaimer in</span>
+<span class="c1">##     the documentation and/or other materials provided with the</span>
+<span class="c1">##     distribution.</span>
+<span class="c1">##   * Neither the name of The Qt Company Ltd nor the names of its</span>
+<span class="c1">##     contributors may be used to endorse or promote products derived</span>
+<span class="c1">##     from this software without specific prior written permission.</span>
+<span class="c1">##</span>
+<span class="c1">##</span>
+<span class="c1">## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</span>
+<span class="c1">## &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</span>
+<span class="c1">## LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</span>
+<span class="c1">## A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT</span>
+<span class="c1">## OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,</span>
+<span class="c1">## SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT</span>
+<span class="c1">## LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</span>
+<span class="c1">## DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</span>
+<span class="c1">## THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
+<span class="c1">## (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span>
+<span class="c1">## OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;</span>
+<span class="c1">##</span>
+<span class="c1">## $QT_END_LICENSE$</span>
+<span class="c1">##</span>
+<span class="c1">#############################################################################</span>
+
+<span class="sd">&quot;&quot;&quot;PySide2 port of the Nested Donuts example from Qt v5.x&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PySide2.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QTimer</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtGui</span> <span class="kn">import</span> <span class="n">QPainter</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QGridLayout</span><span class="p">,</span> <span class="n">QWidget</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtCharts</span> <span class="kn">import</span> <span class="n">QtCharts</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="k">class</span> <span class="nc">Widget</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">QWidget</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMinimumSize</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">donuts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chart_view</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChartView</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chart_view</span><span class="o">.</span><span class="n">setRenderHint</span><span class="p">(</span><span class="n">QPainter</span><span class="o">.</span><span class="n">Antialiasing</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chart_view</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chart</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chart</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s2">&quot;Nested donuts demo&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chart</span><span class="o">.</span><span class="n">setAnimationOptions</span><span class="p">(</span><span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span><span class="o">.</span><span class="n">AllAnimations</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_size</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_size</span> <span class="o">=</span> <span class="mf">0.9</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">donut_count</span> <span class="o">=</span> <span class="mi">5</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_donuts</span><span class="p">()</span>
+
+        <span class="c1"># create main layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_layout</span> <span class="o">=</span> <span class="n">QGridLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chart_view</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">main_layout</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_timer</span> <span class="o">=</span> <span class="n">QTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_timer</span><span class="o">.</span><span class="n">timeout</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_rotation</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_timer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">1250</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setup_donuts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donut_count</span><span class="p">):</span>
+            <span class="n">donut</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QPieSeries</span><span class="p">()</span>
+            <span class="n">slccount</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">slccount</span><span class="p">):</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+                <span class="n">slc</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QPieSlice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">value</span><span class="p">)</span>
+                <span class="n">slc</span><span class="o">.</span><span class="n">setLabelVisible</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+                <span class="n">slc</span><span class="o">.</span><span class="n">setLabelColor</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">white</span><span class="p">)</span>
+                <span class="n">slc</span><span class="o">.</span><span class="n">setLabelPosition</span><span class="p">(</span><span class="n">QtCharts</span><span class="o">.</span><span class="n">QPieSlice</span><span class="o">.</span><span class="n">LabelInsideTangential</span><span class="p">)</span>
+
+                <span class="c1"># Connection using an extra parameter for the slot</span>
+                <span class="n">slc</span><span class="o">.</span><span class="n">hovered</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">explode_slice</span><span class="p">,</span> <span class="n">slc</span><span class="o">=</span><span class="n">slc</span><span class="p">))</span>
+
+                <span class="n">donut</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">slc</span><span class="p">)</span>
+                <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_size</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_size</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">donut_count</span>
+                <span class="n">donut</span><span class="o">.</span><span class="n">setHoleSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_size</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">size</span><span class="p">)</span>
+                <span class="n">donut</span><span class="o">.</span><span class="n">setPieSize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_size</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">donuts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">donut</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chart_view</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span><span class="o">.</span><span class="n">addSeries</span><span class="p">(</span><span class="n">donut</span><span class="p">)</span>
+
+
+
+    <span class="k">def</span> <span class="nf">update_rotation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">donut</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">donuts</span><span class="p">:</span>
+            <span class="n">phase_shift</span> <span class="o">=</span>  <span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="n">donut</span><span class="o">.</span><span class="n">setPieStartAngle</span><span class="p">(</span><span class="n">donut</span><span class="o">.</span><span class="n">pieStartAngle</span><span class="p">()</span> <span class="o">+</span> <span class="n">phase_shift</span><span class="p">)</span>
+            <span class="n">donut</span><span class="o">.</span><span class="n">setPieEndAngle</span><span class="p">(</span><span class="n">donut</span><span class="o">.</span><span class="n">pieEndAngle</span><span class="p">()</span> <span class="o">+</span> <span class="n">phase_shift</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">explode_slice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exploded</span><span class="p">,</span> <span class="n">slc</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">exploded</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+            <span class="n">slice_startangle</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">startAngle</span><span class="p">()</span>
+            <span class="n">slice_endangle</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">startAngle</span><span class="p">()</span> <span class="o">+</span> <span class="n">slc</span><span class="o">.</span><span class="n">angleSpan</span><span class="p">()</span>
+
+            <span class="n">donut</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">series</span><span class="p">()</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">donuts</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">donut</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">donuts</span><span class="p">)):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">donuts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">setPieStartAngle</span><span class="p">(</span><span class="n">slice_endangle</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">donuts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">setPieEndAngle</span><span class="p">(</span><span class="mi">360</span> <span class="o">+</span> <span class="n">slice_startangle</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">donut</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">donuts</span><span class="p">:</span>
+                <span class="n">donut</span><span class="o">.</span><span class="n">setPieStartAngle</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">donut</span><span class="o">.</span><span class="n">setPieEndAngle</span><span class="p">(</span><span class="mi">360</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+        <span class="n">slc</span><span class="o">.</span><span class="n">setExploded</span><span class="p">(</span><span class="n">exploded</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">Widget</span><span class="p">()</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+</body>
+</html>

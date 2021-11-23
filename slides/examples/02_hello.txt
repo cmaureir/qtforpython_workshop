@@ -1,0 +1,5 @@
+en, Hello World
+es, Hola Mundo
+de, Hallo Welt
+it, Ciao Mondo
+ru, Привет мир

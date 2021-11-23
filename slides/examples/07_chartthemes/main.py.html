@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #ffffcc }
+body  { background: #f8f8f8; }
+body .c { color: #408080; font-style: italic } /* Comment */
+body .err { border: 1px solid #FF0000 } /* Error */
+body .k { color: #008000; font-weight: bold } /* Keyword */
+body .o { color: #666666 } /* Operator */
+body .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 } /* Comment.Preproc */
+body .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .gr { color: #FF0000 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #888888 } /* Generic.Output */
+body .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #0044DD } /* Generic.Traceback */
+body .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #008000 } /* Keyword.Pseudo */
+body .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #B00040 } /* Keyword.Type */
+body .m { color: #666666 } /* Literal.Number */
+body .s { color: #BA2121 } /* Literal.String */
+body .na { color: #7D9029 } /* Name.Attribute */
+body .nb { color: #008000 } /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+body .no { color: #880000 } /* Name.Constant */
+body .nd { color: #AA22FF } /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold } /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+body .nf { color: #0000FF } /* Name.Function */
+body .nl { color: #A0A000 } /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+body .nt { color: #008000; font-weight: bold } /* Name.Tag */
+body .nv { color: #19177C } /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+body .w { color: #bbbbbb } /* Text.Whitespace */
+body .mb { color: #666666 } /* Literal.Number.Bin */
+body .mf { color: #666666 } /* Literal.Number.Float */
+body .mh { color: #666666 } /* Literal.Number.Hex */
+body .mi { color: #666666 } /* Literal.Number.Integer */
+body .mo { color: #666666 } /* Literal.Number.Oct */
+body .sa { color: #BA2121 } /* Literal.String.Affix */
+body .sb { color: #BA2121 } /* Literal.String.Backtick */
+body .sc { color: #BA2121 } /* Literal.String.Char */
+body .dl { color: #BA2121 } /* Literal.String.Delimiter */
+body .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #BA2121 } /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+body .sh { color: #BA2121 } /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+body .sx { color: #008000 } /* Literal.String.Other */
+body .sr { color: #BB6688 } /* Literal.String.Regex */
+body .s1 { color: #BA2121 } /* Literal.String.Single */
+body .ss { color: #19177C } /* Literal.String.Symbol */
+body .bp { color: #008000 } /* Name.Builtin.Pseudo */
+body .fm { color: #0000FF } /* Name.Function.Magic */
+body .vc { color: #19177C } /* Name.Variable.Class */
+body .vg { color: #19177C } /* Name.Variable.Global */
+body .vi { color: #19177C } /* Name.Variable.Instance */
+body .vm { color: #19177C } /* Name.Variable.Magic */
+body .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtCore</span> <span class="kn">import</span> <span class="n">qApp</span><span class="p">,</span> <span class="n">QPointF</span><span class="p">,</span> <span class="n">Qt</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtGui</span> <span class="kn">import</span> <span class="n">QColor</span><span class="p">,</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QPalette</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QSizePolicy</span><span class="p">,</span>
+    <span class="n">QWidget</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtCharts</span> <span class="kn">import</span> <span class="n">QtCharts</span>
+
+<span class="kn">from</span> <span class="nn">ui_themewidget</span> <span class="kn">import</span> <span class="n">Ui_ThemeWidgetForm</span> <span class="k">as</span> <span class="n">ui</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span><span class="p">,</span> <span class="n">uniform</span>
+
+<span class="k">class</span> <span class="nc">ThemeWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="n">QWidget</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">ui</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">list_count</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value_max</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value_count</span> <span class="o">=</span> <span class="mi">7</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_random_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_count</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value_max</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_count</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">populate_themebox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">populate_animationbox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">populate_legendbox</span><span class="p">()</span>
+
+        <span class="c1"># Area Chart</span>
+        <span class="n">chart_view</span> <span class="o">=</span>  <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChartView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_areachart</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">gridLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">chart_view</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart_view</span><span class="p">)</span>
+
+        <span class="c1"># Pie Chart</span>
+        <span class="n">chart_view</span> <span class="o">=</span>  <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChartView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">createPieChart</span><span class="p">())</span>
+        <span class="n">chart_view</span><span class="o">.</span><span class="n">setSizePolicy</span><span class="p">(</span><span class="n">QSizePolicy</span><span class="o">.</span><span class="n">Ignored</span><span class="p">,</span>
+            <span class="n">QSizePolicy</span><span class="o">.</span><span class="n">Ignored</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">gridLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">chart_view</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart_view</span><span class="p">)</span>
+
+        <span class="c1"># Line Chart</span>
+        <span class="n">chart_view</span> <span class="o">=</span>  <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChartView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">createLineChart</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">gridLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">chart_view</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart_view</span><span class="p">)</span>
+
+        <span class="c1"># Bar Chart</span>
+        <span class="n">chart_view</span> <span class="o">=</span>  <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChartView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">createBarChart</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">gridLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">chart_view</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart_view</span><span class="p">)</span>
+
+        <span class="c1"># Spline Chart</span>
+        <span class="n">chart_view</span> <span class="o">=</span>  <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChartView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">createSplineChart</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">gridLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">chart_view</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart_view</span><span class="p">)</span>
+
+        <span class="c1"># Scatter Chart</span>
+        <span class="n">chart_view</span> <span class="o">=</span>  <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChartView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_scatterchart</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">gridLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">chart_view</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart_view</span><span class="p">)</span>
+
+        <span class="c1"># Set defaults</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">antialiasCheckBox</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+        <span class="c1"># Set the colors from the light theme as default ones</span>
+        <span class="n">pal</span> <span class="o">=</span> <span class="n">qApp</span><span class="o">.</span><span class="n">palette</span><span class="p">()</span>
+        <span class="n">pal</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">QPalette</span><span class="o">.</span><span class="n">Window</span><span class="p">,</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0xf0f0f0</span><span class="p">))</span>
+        <span class="n">pal</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">QPalette</span><span class="o">.</span><span class="n">WindowText</span><span class="p">,</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0x404044</span><span class="p">))</span>
+        <span class="n">qApp</span><span class="o">.</span><span class="n">setPalette</span><span class="p">(</span><span class="n">pal</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">updateUI</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">generate_random_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_count</span><span class="p">,</span> <span class="n">value_max</span><span class="p">,</span> <span class="n">value_count</span><span class="p">):</span>
+        <span class="n">data_table</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">list_count</span><span class="p">):</span>
+            <span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">y_value</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">value_count</span><span class="p">):</span>
+                <span class="n">constant</span> <span class="o">=</span> <span class="n">value_max</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">value_count</span><span class="p">)</span>
+                <span class="n">y_value</span> <span class="o">+=</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">constant</span><span class="p">)</span>
+                <span class="n">x_value</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="n">random</span><span class="p">())</span> <span class="o">*</span> <span class="n">constant</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">QPointF</span><span class="p">(</span><span class="n">x_value</span><span class="p">,</span> <span class="n">y_value</span><span class="p">)</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Slice {}: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">value</span><span class="p">,</span> <span class="n">label</span><span class="p">))</span>
+            <span class="n">data_table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">data_table</span>
+
+    <span class="k">def</span> <span class="nf">populate_themebox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">theme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">themeComboBox</span>
+        <span class="n">qchart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span>
+
+        <span class="n">theme</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Light&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeLight</span><span class="p">)</span>
+        <span class="n">theme</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Blue Cerulean&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueCerulean</span><span class="p">)</span>
+        <span class="n">theme</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Dark&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeDark</span><span class="p">)</span>
+        <span class="n">theme</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Brown Sand&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBrownSand</span><span class="p">)</span>
+        <span class="n">theme</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Blue NCS&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueNcs</span><span class="p">)</span>
+        <span class="n">theme</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;High Contrast&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeHighContrast</span><span class="p">)</span>
+        <span class="n">theme</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Blue Icy&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueIcy</span><span class="p">)</span>
+        <span class="n">theme</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Qt&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeQt</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">populate_animationbox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">animated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">animatedComboBox</span>
+        <span class="n">qchart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span>
+
+        <span class="n">animated</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;No Animations&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">NoAnimation</span><span class="p">)</span>
+        <span class="n">animated</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;GridAxis Animations&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">GridAxisAnimations</span><span class="p">)</span>
+        <span class="n">animated</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Series Animations&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">SeriesAnimations</span><span class="p">)</span>
+        <span class="n">animated</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;All Animations&quot;</span><span class="p">,</span> <span class="n">qchart</span><span class="o">.</span><span class="n">AllAnimations</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">populate_legendbox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">legendComboBox</span>
+
+        <span class="n">legend</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;No Legend &quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Legend Top&quot;</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignTop</span><span class="p">)</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Legend Bottom&quot;</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignBottom</span><span class="p">)</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Legend Left&quot;</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignLeft</span><span class="p">)</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Legend Right&quot;</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignRight</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">create_areachart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s2">&quot;Area Chart&quot;</span><span class="p">)</span>
+
+        <span class="c1"># The lower series initialized to zero values</span>
+        <span class="n">lower_series</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Series &quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">)):</span>
+            <span class="n">upper_series</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QLineSeries</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">lower_series</span><span class="p">:</span>
+                    <span class="n">points</span> <span class="o">=</span> <span class="n">lower_series</span><span class="o">.</span><span class="n">pointsVector</span><span class="p">()</span>
+                    <span class="n">y_value</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">()</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">()</span>
+                    <span class="n">upper_series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QPointF</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">y_value</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">upper_series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QPointF</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">()))</span>
+            <span class="n">area</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QAreaSeries</span><span class="p">(</span><span class="n">upper_series</span><span class="p">,</span> <span class="n">lower_series</span><span class="p">)</span>
+            <span class="n">area</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s2">&quot;{}{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+            <span class="n">chart</span><span class="o">.</span><span class="n">addSeries</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+            <span class="n">lower_series</span> <span class="o">=</span> <span class="n">upper_series</span>
+
+        <span class="n">chart</span><span class="o">.</span><span class="n">createDefaultAxes</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisX</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_max</span><span class="p">)</span>
+        <span class="c1"># Add space to label to add space between labels and axis</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setLabelFormat</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">  &quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">chart</span>
+
+    <span class="k">def</span> <span class="nf">createBarChart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s2">&quot;Bar chart&quot;</span><span class="p">)</span>
+
+        <span class="n">series</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QStackedBarSeries</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">)):</span>
+            <span class="n">barset</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QBarSet</span><span class="p">(</span><span class="s2">&quot;Bar set {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">barset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">())</span>
+            <span class="n">series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">barset</span><span class="p">)</span>
+
+        <span class="n">chart</span><span class="o">.</span><span class="n">addSeries</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+
+        <span class="n">chart</span><span class="o">.</span><span class="n">createDefaultAxes</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_max</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># Add space to label to add space between labels and axis</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setLabelFormat</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">  &quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">chart</span>
+
+    <span class="k">def</span> <span class="nf">createLineChart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s2">&quot;Line chart&quot;</span><span class="p">)</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Series &quot;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">lst</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">):</span>
+            <span class="n">series</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QLineSeries</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+                <span class="n">series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">series</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s2">&quot;{}{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+            <span class="n">chart</span><span class="o">.</span><span class="n">addSeries</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+
+        <span class="n">chart</span><span class="o">.</span><span class="n">createDefaultAxes</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisX</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_max</span><span class="p">)</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_count</span><span class="p">)</span>
+        <span class="c1"># Add space to label to add space between labels and axis</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setLabelFormat</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">  &quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">chart</span>
+
+    <span class="k">def</span> <span class="nf">createPieChart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s2">&quot;Pie chart&quot;</span><span class="p">)</span>
+
+        <span class="n">series</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QPieSeries</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">slc</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="c1"># Show the first slice exploded with label</span>
+                <span class="n">slc</span><span class="o">.</span><span class="n">setLabelVisible</span><span class="p">()</span>
+                <span class="n">slc</span><span class="o">.</span><span class="n">setExploded</span><span class="p">()</span>
+                <span class="n">slc</span><span class="o">.</span><span class="n">setExplodeDistanceFactor</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="n">series</span><span class="o">.</span><span class="n">setPieSize</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">addSeries</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">chart</span>
+
+    <span class="k">def</span> <span class="nf">createSplineChart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s2">&quot;Spline chart&quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Series &quot;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">lst</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">):</span>
+            <span class="n">series</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QSplineSeries</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+                <span class="n">series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">series</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s2">&quot;{}{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+            <span class="n">chart</span><span class="o">.</span><span class="n">addSeries</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+
+        <span class="n">chart</span><span class="o">.</span><span class="n">createDefaultAxes</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisX</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_max</span><span class="p">)</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_count</span><span class="p">)</span>
+        <span class="c1"># Add space to label to add space between labels and axis</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setLabelFormat</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">  &quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">chart</span>
+
+    <span class="k">def</span> <span class="nf">create_scatterchart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s2">&quot;Scatter chart&quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Series &quot;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">lst</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_table</span><span class="p">):</span>
+            <span class="n">series</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QScatterSeries</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+                <span class="n">series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">series</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s2">&quot;{}{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+            <span class="n">chart</span><span class="o">.</span><span class="n">addSeries</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+
+        <span class="n">chart</span><span class="o">.</span><span class="n">createDefaultAxes</span><span class="p">()</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisX</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_max</span><span class="p">)</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_count</span><span class="p">)</span>
+        <span class="c1"># Add space to label to add space between labels and axis</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">axisY</span><span class="p">()</span><span class="o">.</span><span class="n">setLabelFormat</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">  &quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">chart</span>
+
+    <span class="k">def</span> <span class="nf">updateUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">set_colors</span><span class="p">(</span><span class="n">window_color</span><span class="p">,</span> <span class="n">text_color</span><span class="p">):</span>
+            <span class="n">pal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">()</span><span class="o">.</span><span class="n">palette</span><span class="p">()</span>
+            <span class="n">pal</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">QPalette</span><span class="o">.</span><span class="n">Window</span><span class="p">,</span> <span class="n">window_color</span><span class="p">)</span>
+            <span class="n">pal</span><span class="o">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">QPalette</span><span class="o">.</span><span class="n">WindowText</span><span class="p">,</span> <span class="n">text_color</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">()</span><span class="o">.</span><span class="n">setPalette</span><span class="p">(</span><span class="n">pal</span><span class="p">)</span>
+
+        <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">themeComboBox</span><span class="o">.</span><span class="n">currentIndex</span><span class="p">()</span>
+        <span class="n">theme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">themeComboBox</span><span class="o">.</span><span class="n">itemData</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="n">qchart</span> <span class="o">=</span> <span class="n">QtCharts</span><span class="o">.</span><span class="n">QChart</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">):</span>
+            <span class="n">chart_theme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span><span class="o">.</span><span class="n">theme</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">chart_theme</span> <span class="o">!=</span> <span class="n">theme</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">chart_view</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">theme</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeLight</span>
+                    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueCerulean</span>
+                    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeDark</span>
+                    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBrownSand</span>
+                    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueNcs</span>
+                    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeHighContrast</span>
+                    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueIcy</span>
+                    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeQt</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">theme_name</span> <span class="o">=</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeLight</span>
+
+                    <span class="n">chart_view</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span><span class="o">.</span><span class="n">setTheme</span><span class="p">(</span><span class="n">theme_name</span><span class="p">)</span>
+
+                <span class="c1"># Set palette colors based on selected theme</span>
+                <span class="k">if</span> <span class="n">theme</span> <span class="o">==</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeLight</span><span class="p">:</span>
+                    <span class="n">set_colors</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mh">0xf0f0f0</span><span class="p">),</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0x404044</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeDark</span><span class="p">:</span>
+                    <span class="n">set_colors</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mh">0x121218</span><span class="p">),</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0xd6d6d6</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueCerulean</span><span class="p">:</span>
+                    <span class="n">set_colors</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mh">0x40434a</span><span class="p">),</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0xd6d6d6</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBrownSand</span><span class="p">:</span>
+                    <span class="n">set_colors</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mh">0x9e8965</span><span class="p">),</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0x404044</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueNcs</span><span class="p">:</span>
+                    <span class="n">set_colors</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mh">0x018bba</span><span class="p">),</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0x404044</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeHighContrast</span><span class="p">:</span>
+                    <span class="n">set_colors</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mh">0xffab03</span><span class="p">),</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0x181818</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="n">qchart</span><span class="o">.</span><span class="n">ChartThemeBlueIcy</span><span class="p">:</span>
+                    <span class="n">set_colors</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mh">0xcee7f0</span><span class="p">),</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0x404044</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">set_colors</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mh">0xf0f0f0</span><span class="p">),</span> <span class="n">QColor</span><span class="p">(</span><span class="mh">0x404044</span><span class="p">))</span>
+
+
+        <span class="c1"># Update antialiasing</span>
+        <span class="n">checked</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">antialiasCheckBox</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">chart</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">:</span>
+            <span class="n">chart</span><span class="o">.</span><span class="n">setRenderHint</span><span class="p">(</span><span class="n">QPainter</span><span class="o">.</span><span class="n">Antialiasing</span><span class="p">,</span> <span class="n">checked</span><span class="p">)</span>
+
+        <span class="c1"># Update animation options</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">animatedComboBox</span><span class="o">.</span><span class="n">currentIndex</span><span class="p">()</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">animatedComboBox</span><span class="o">.</span><span class="n">itemData</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">):</span>
+            <span class="n">chart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span>
+            <span class="n">animation_options</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">animationOptions</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">animation_options</span> <span class="o">!=</span> <span class="n">options</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">chart_view</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">:</span>
+                    <span class="n">chart_view</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span><span class="o">.</span><span class="n">setAnimationOptions</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+
+        <span class="c1"># Update legend alignment</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">legendComboBox</span><span class="o">.</span><span class="n">currentIndex</span><span class="p">()</span>
+        <span class="n">alignment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">legendComboBox</span><span class="o">.</span><span class="n">itemData</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">alignment</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">chart_view</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">:</span>
+                <span class="n">chart_view</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">chart_view</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="p">:</span>
+                <span class="n">chart_view</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">setAlignment</span><span class="p">(</span><span class="n">alignment</span><span class="p">)</span>
+                <span class="n">chart_view</span><span class="o">.</span><span class="n">chart</span><span class="p">()</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">QMainWindow</span><span class="p">()</span>
+    <span class="n">widget</span> <span class="o">=</span> <span class="n">ThemeWidget</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span>
+    <span class="n">available_geometry</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">desktop</span><span class="p">()</span><span class="o">.</span><span class="n">availableGeometry</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">available_geometry</span><span class="o">.</span><span class="n">height</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.9</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">setFixedSize</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+</body>
+</html>

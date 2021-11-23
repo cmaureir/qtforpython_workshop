@@ -73,6 +73,18 @@
        id="g10">
       <switch
          id="switch8">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="131"
+           height="24"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 131px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Typesystem</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
         <text
            x="66"
            y="23"
@@ -104,6 +116,18 @@
        id="g20">
       <switch
          id="switch18">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="124"
+           height="24"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 126px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Qt Headers</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
         <text
            x="62"
            y="23"
@@ -189,6 +213,20 @@
        id="g52">
       <switch
          id="switch50">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="114"
+           height="24"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 116px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">
+              <xhtml:b>Shiboken</xhtml:b>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
         <text
            x="57"
            y="23"
@@ -232,6 +270,18 @@
        id="g72">
       <switch
          id="switch70">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="91"
+           height="24"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 93px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">CPython</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
         <text
            x="46"
            y="23"
@@ -260,6 +310,18 @@
        id="g32">
       <switch
          id="switch30">
+        <foreignObject
+           style="overflow:visible;"
+           pointer-events="all"
+           width="69"
+           height="24"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: inline-block; font-size: 22px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 71px; white-space: nowrap; word-wrap: normal; text-align: center;">
+            <xhtml:div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Clang</xhtml:div>
+          </xhtml:div>
+        </foreignObject>
         <text
            x="35"
            y="23"
